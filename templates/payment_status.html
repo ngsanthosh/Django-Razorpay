@@ -7,11 +7,19 @@
             <i class="fa fa-check-circle" aria-hidden="true" style="font-size: 80px; color: green;"></i>
         </div>
         <h2 style="text-align: center;">Thank you. Your payment was successful.</h2>
-    <!-- {% else %}
-        <h2 style="text-align: center;">Your Payment is failed! Try again.</h2> -->
+        
+    {% else %}
+        <h2 style="text-align: center;">Your Payment is failed! Try again.</h2>
+        <!-- <div class="text-center mt-5">
+        <a href="{% url 'coffee-payment' %}" class="btn btn-primary" role="button">Buy another one</a>
+        </div> -->
+         <!-- <h2>go back</h2>
+        <button style="align-items: center;">Buy me another coffee</button> --> -->
     {% endif %}
 
     <div class="text-center mt-5">
-        <a href="{% url 'coffee-payment' %}" class="btn btn-primary" role="button">Buy another one</a>
+    <a href="{% url 'coffee-payment' %}" class="btn btn-primary" >Buy another one</a>
     </div>
+
+   
 {% endblock %}

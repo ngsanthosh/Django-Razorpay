@@ -16,7 +16,7 @@ def coffee_payment(request):
         response_payment = client.order.create(dict(amount=amount,
                                                     currency='INR')
                                                )
-
+        print(response_payment)
         order_id = response_payment['id']
         order_status = response_payment['status']
 
@@ -38,6 +38,7 @@ def coffee_payment(request):
 
 def payment_status(request):
     response = request.POST
+    print(response)
     params_dict = {
         'razorpay_order_id': response['razorpay_order_id'],
         'razorpay_payment_id': response['razorpay_payment_id'],
@@ -46,9 +47,10 @@ def payment_status(request):
 
     # client instance
     client = razorpay.Client(auth=('rzp_test_CkypIVhZfKhxO5', 'pNMMJ3EY9v5o5ElLLj0ymjXh'))
-
+    print(client)
     try:
         status = client.utility.verify_payment_signature(params_dict)
+        print(status)
         cold_coffee = ColdCoffee.objects.get(order_id=response['razorpay_order_id'])
         cold_coffee.razorpay_payment_id = response['razorpay_payment_id']
         cold_coffee.paid = True
