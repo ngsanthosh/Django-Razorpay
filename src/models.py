@@ -1,5 +1,5 @@
 from django.db import models
-
+#This model is used to store the customer credentials who has successfully made a payement.
 
 class ColdCoffee(models.Model):
     name = models.CharField(max_length=100)
